@@ -246,8 +246,8 @@ if __name__ == '__main__':
     # Test whether certain command line arguments
     # can be converted to positive integers
     numLearners = args.integers[0]
-    numberofsentences = args.integers[1]
-    growth=args.integers[2]
+    numberofsentences = args.integers[0]
+    growth=args.integers[1]
     #language = str(args.strings[0]).lower()
 
     # if language == "alllanguages":
@@ -255,7 +255,7 @@ if __name__ == '__main__':
     # elif language == "speedtest":
     #     runSpeedTest(numLearners, numberofsentences)
     # else:
-    languages=['611']*100
+    languages=['611']*numLearners
 
 
 
@@ -303,7 +303,7 @@ if __name__ == '__main__':
         #q = Queue()
 
 	#sl,c=prepare_stats(100)
-        for i in range(0,100):
+        for i in range(0,numLearners):
 	
             if n>=len(languages):
                 break
