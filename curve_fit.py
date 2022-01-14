@@ -14,6 +14,9 @@ def logifunc(x,x0,k):
 def func(x, k, c):
     return k*x+c
 import csv
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 #df = pd.read_csv('https://gist.githubusercontent.com/shinokada/76070a0927fa1fac01eeaed298757a26/raw/2707a1bd7cba80613a01a2026abeb9f587dbaee5/logisticdata.csv')
 
 #x=df.T.iloc[0]
