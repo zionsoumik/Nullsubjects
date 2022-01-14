@@ -184,17 +184,21 @@ def main():
     n=0
     growth=2
     param=[]
-    if growth==1:    
-    	with open('linear_param.csv', 'rb') as f:
-    		reader = csv.reader(f)
-    		param = list(reader)
-        #param=[['2.12734126318465e-07', '-0.6782866308905113']]
+    if growth==1: 
+	if numLearners==1:
+    		with open('linear_param.csv', 'rb') as f:
+    			reader = csv.reader(f)
+    			param = list(reader)
+        else:
+		param=[['2.12734126318465e-07', '-0.6782866308905113']]
 
     else:
-	with open('e_param.csv', 'rb') as f:
-    		reader = csv.reader(f)
-    		param = list(reader)
-	#param=[['5516232.935663383', '9.936188693152848e-07']]
+	if numLearners==1:
+		with open('e_param.csv', 'rb') as f:
+    			reader = csv.reader(f)
+    			param = list(reader)
+	else:
+		param=[['5516232.935663383', '9.936188693152848e-07']]
     
     print(languages)
 
