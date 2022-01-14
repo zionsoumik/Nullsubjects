@@ -159,10 +159,20 @@ def main():
     n = 0
     #results=[]
     q=Queue()
+	
+	
+    #### params ###
     numLearners = 100
+    max_sentences = 10000
+    growth=2
+    conservativer=0.001
+    aggresiveR=0.2
+    ####params###
+
+
     languages = ['0001101100011']*numLearners
 
-    max_sentences = 10000
+    
     print(max_sentences)
     #Gtarg = "0001001100011"
     reader=csv.reader(colag_file, delimiter='\t')
@@ -182,19 +192,23 @@ def main():
     # R=0.02
     ns_list = []
     n=0
-    growth=2
+    
     param=[]
-    if growth==1:    
-    	with open('linear_param.csv', 'rb') as f:
-    		reader = csv.reader(f)
-    		param = list(reader)
-        #param=[['2.12734126318465e-07', '-0.6782866308905113']]
+    if growth==1:  
+	if numLearners==1:
+    		with open('linear_param.csv', 'rb') as f:
+    			reader = csv.reader(f)
+    			param = list(reader)
+        else:
+		param=[['2.12734126318465e-07', '-0.6782866308905113']]
 
     else:
-	with open('e_param.csv', 'rb') as f:
-    		reader = csv.reader(f)
-    		param = list(reader)
-	#param=[['5516232.935663383', '9.936188693152848e-07']]
+	if numLearners=1:
+		with open('e_param.csv', 'rb') as f:
+    			reader = csv.reader(f)
+    			param = list(reader)
+	else:
+		param=[['5516232.935663383', '9.936188693152848e-07']]
     
     print(languages)
 
@@ -219,7 +233,7 @@ def main():
             #pool.join()
             #pool = mp.Pool(processes=4)
             
-            p = multiprocessing.Process(target=var_learner, args=(0.001,0.2,IMP_list,DEC_Q_list,max_sentences,Gtarg,q,float(param[n][0]),float(param[n][1]),growth))
+            p = multiprocessing.Process(target=var_learner, args=(conservativer,aggresiveR,IMP_list,DEC_Q_list,max_sentences,Gtarg,q,float(param[n][0]),float(param[n][1]),growth))
             n=n+1
             #print(n)
             jobs.append(p)
