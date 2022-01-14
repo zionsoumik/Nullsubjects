@@ -150,29 +150,20 @@ def prepare_stats(num):
         x0.append(popt[1])
         p_list_linear.append([popt[0],popt[1]])
         p_list_e.append([popt1[0], popt1[1]])
-    #with open("linear_param.csv", "w",newline='') as f:
-        #writer = csv.writer(f)
-        #writer.writerows(p_list_linear)
-    #with open("age_NFS.csv", "w",newline='') as f:
-        #writer = csv.writer(f)
-        #writer.writerows(d_list)
-    #with open("e_param.csv", "w", newline='') as f:
-        #writer = csv.writer(f)
-        #writer.writerows(p_list_e)
+        
+    with open("linear_param.csv", "w",newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(p_list_linear)
+    with open("age_NFS.csv", "w",newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(d_list)
+    with open("e_param.csv", "w", newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(p_list_e)
 prepare_stats(100)
 x=np.asarray([5040945.157,6254309.675,7389382.003],dtype=np.float)
 y=np.asarray([0.4,0.64,0.9],dtype=np.float)
 popt, pcov = curve_fit(func,x,y,p0=[0.000001,5000000])
 popt1, pcov1 = curve_fit(logifunc, x, y, p0=[5000000, 0.000001])
 print(popt[0],popt[1],popt1[0],popt1[1])
-#logit
-#0.000000993
-#5516232.93
 
-#linear
-#0.00000021
-#-0.68697880
-
-#age
-# 2044182.5 3566209.688
-# 2177498.75 5610392.188
