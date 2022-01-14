@@ -23,8 +23,9 @@ import statistics
 from multiprocessing import Queue
 #GLOBALS
 ns_list=[]
-#rate = 0.0009
-#conservativerate = 0.0001
+
+
+## Fix rates here
 rate = 0.00025
 conservativerate = 0.00002
 from numpy import random
