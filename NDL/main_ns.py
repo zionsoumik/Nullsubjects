@@ -28,9 +28,7 @@ ns_list=[]
 rate = 0.00025
 conservativerate = 0.00002
 from numpy import random
-vtoirate=0.04
 
-oprate=0.0001
 
 
 #ahrate=0.001
