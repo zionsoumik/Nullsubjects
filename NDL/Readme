@@ -1,1 +1,1 @@
-
+Run file using python main_ns.py numlearners numofsentences growth(1 for linear 2 for logistic)
