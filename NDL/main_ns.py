@@ -245,7 +245,7 @@ if __name__ == '__main__':
 
     # Test whether certain command line arguments
     # can be converted to positive integers
-    numLearners = args.integers[0]
+    numL = args.integers[0]
     numberofsentences = args.integers[0]
     growth=args.integers[1]
     #language = str(args.strings[0]).lower()
@@ -255,7 +255,7 @@ if __name__ == '__main__':
     # elif language == "speedtest":
     #     runSpeedTest(numLearners, numberofsentences)
     # else:
-    languages=['611']*numLearners
+    languages=['611']*numL
 
 
 
@@ -303,11 +303,11 @@ if __name__ == '__main__':
         #q = Queue()
 
 	#sl,c=prepare_stats(100)
-        for i in range(0,numLearners):
+        for i in range(0,numL):
 	
             if n>=len(languages):
                 break
-            p = multiprocessing.Process(target=runOneLanguage, args=(numLearners, numberofsentences, languages[n],q,float(param[n][0]),float(param[n][1]),growth))
+            p = multiprocessing.Process(target=runOneLanguage, args=(1, numberofsentences, languages[n],q,float(param[n][0]),float(param[n][1]),growth))
             n=n+1
             #print(n)
             jobs.append(p)
