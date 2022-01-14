@@ -32,8 +32,7 @@ from numpy import random
 
 
 
-#ahrate=0.001
-threshold = .001
+
 results=[]
 
 def logifunc(x,x0,k):
