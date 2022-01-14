@@ -161,9 +161,4 @@ def prepare_stats(num):
         writer = csv.writer(f)
         writer.writerows(p_list_e)
 prepare_stats(100)
-x=np.asarray([5040945.157,6254309.675,7389382.003],dtype=np.float)
-y=np.asarray([0.4,0.64,0.9],dtype=np.float)
-popt, pcov = curve_fit(func,x,y,p0=[0.000001,5000000])
-popt1, pcov1 = curve_fit(logifunc, x, y, p0=[5000000, 0.000001])
-print(popt[0],popt[1],popt1[0],popt1[1])
 
